@@ -1,0 +1,80 @@
+---
+title:  'Funciones de densidad de distribuciones'
+subtitle: 'Universidad Nacional de Colombia'
+author: 
+  - Isaías Pérez Ramírez,
+      Hugo Francisco Rincón López, 
+        Rudesindo Acuña Sánchez
+  - isperezr@unal.edu.co,
+      hufrinconlo@unal.edu.co,
+        ruacunas@unal.edu.co
+
+date: '2022-06-20'
+output:
+  pdf_document: default
+  beamer_presentation: default
+  spacing: singlespacing
+---
+
+```{=tex}
+\fontsize{12}{22}
+\fontseries{b}
+\selectfont
+```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{=tex}
+\begin{center}
+Programación en lenguajes estadísticos\\
+A continuación se presentan una serie de gráficas de funciones de densidad de distribuciones de probabilidades
+\end{center}
+```
+## Función de densidad de una distribución uniforme
+
+```{r}
+Vec = c(0:4)
+mini <- 1
+maxi <- 3
+
+dis = dunif(x= Vec, min = mini, max = maxi)
+dis
+plot(Vec, dis, type="l", col="blue", ylab = "Probabilidad")
+  
+```
+
+## Función de densidad de una distribución Bernoulli
+
+```{r}
+Vec1= c(1:50)
+ens <- sample(1:200, 1)
+prob <-  round(runif(1,0,100), 2)
+sprintf("El número de ensayos %d El porcentaje de éxito es %.2f%%", ens, prob)
+b = dbinom(x = Vec1, size = ens, prob = (prob/100))
+plot(b, type="h",lwd="2", xlab="Numero de exitos", col="red", ylab = "Probabilidad")
+          
+```
+## Función de densidad de una distribución Poisson
+
+```{r}
+Vec = c(1:50)
+nEventos =sample(1:200, 1)
+sprintf("El número de eventos es %d", nEventos)
+dis = dpois(Vec, lambda = nEventos)
+plot(dis, type="h", xlab= "Numero de eventos", lwd="2", col="red", ylab = "Probabilidad")
+          
+```
+
+## Función de densidad de una distribución Exponencial
+
+```{r}
+Vec = c(1:10)
+tEventos = sample(1:100, 1)
+sprintf("La tasa de ocurrencia de eventos es %d", tEventos)
+dist = dexp(Vec, rate = tEventos)
+plot(Vec, dist, type="l", lwd="2", col="blue", ylab = "Probabilidad")
+          
+```
+
+\`
