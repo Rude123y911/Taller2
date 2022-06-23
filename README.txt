@@ -1,3 +1,6 @@
+Autores de los programas:
+Isaías Pérez Ramírez, Hugo Francisco Rincón López y Rudesindo Acuña Sánchez
+
 Programa1
 Se deben instalar las siguientes librerías:
 1. dplyr
